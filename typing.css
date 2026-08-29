@@ -1,0 +1,38 @@
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.game-container {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    width: 650px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.hidden { display: none !important; }
+h1, h2 { text-align: center; margin-top: 0; }
+.mode-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.mode-btn { background: #3b82f6; color: white; border: none; padding: 12px; font-size: 1.1rem; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+.mode-btn:hover { background: #2563eb; }
+.selector-group { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.9rem; color: #94a3b8; }
+.room-box { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.room-box input { padding: 10px; background: #334155; border: none; color: white; border-radius: 6px; font-size: 1rem; }
+.time-btn, .diff-btn, #back-to-menu, #back-to-menu-setup { background: #334155; color: #f8fafc; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
+.time-btn.active, .diff-btn.active { background: #3b82f6; font-weight: bold; }
+#back-to-menu, #back-to-menu-setup { margin-bottom: 15px; background: #475569; }
+.race-container { background: #0f172a; padding: 10px; border-radius: 6px; margin-bottom: 15px; }
+.racer { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
+.progress-track { flex-grow: 1; background: #334155; height: 10px; border-radius: 5px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0%; background: #22c55e; transition: width 0.1s; }
+.progress-fill.rival { background: #ef4444; }
+.text-display { font-size: 1.3rem; line-height: 1.8rem; letter-spacing: 1px; margin: 15px 0; padding: 15px; background: #0f172a; border-radius: 8px; min-height: 70px; max-height: 120px; overflow-y: auto; }
+.correct { color: #22c55e; }
+.incorrect { color: #ef4444; background: rgba(239, 68, 68, 0.2); }
+textarea { width: 100%; height: 50px; background: #334155; color: white; border: none; border-radius: 6px; padding: 10px; font-size: 1rem; resize: none; }
+#restart-btn { width: 100%; background: #22c55e; color: white; border: none; padding: 10px; border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: 10px; }

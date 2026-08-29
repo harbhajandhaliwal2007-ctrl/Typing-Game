@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TypeSprint JS - Multiplayer</title>
+    <link rel="stylesheet" href="typing.css">
+    <!-- PeerJS CDN for P2P connection -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.5.5/peerjs.min.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <h1>⚡ TypeSprint Multiplayer</h1>
+
+        <!-- MODE SELECTION -->
+        <div id="menu-screen" class="screen">
+            <h2>Select Game Mode</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" id="mode-practice">🎯 Practice (Solo)</button>
+                <button class="mode-btn" id="mode-guest">🤖 Play with Guest (vs AI)</button>
+                <button class="mode-btn" id="mode-friend">👥 Play with Friend (1v1 P2P)</button>
+            </div>
+        </div>
+
+        <!-- FRIEND SETUP SCREEN (Specific to 1v1) -->
+        <div id="friend-setup-screen" class="screen hidden">
+            <button id="back-to-menu-setup">⬅ Back</button>
+            <h2>Multiplayer Room</h2>
+            <div class="room-box">
+                <button id="create-room-btn" class="mode-btn">Create Room (Host)</button>
+                <p id="room-status">Your Room ID: <span id="my-room-id">Not Created</span></p>
+            </div>
+            <hr style="border-color: #334155; margin: 20px 0;">
+            <div class="room-box">
+                <input type="text" id="join-id-input" placeholder="Paste Friend's Room ID here..." />
+                <button id="join-room-btn" class="mode-btn">Join Room</button>
+            </div>
+        </div>
+
+        <!-- GAMEPLAY SCREEN -->
+        <div id="game-screen" class="screen hidden">
+            <button id="back-to-menu">⬅ Quit to Menu</button>
+            
+            <div id="difficulty-selector" class="selector-group hidden">
+                <span>AI Difficulty:</span>
+                <button class="diff-btn active" data-speed="30">Easy</button>
+                <button class="diff-btn" data-speed="55">Medium</button>
+                <button class="diff-btn" data-speed="80">Hard</button>
+            </div>
+
+            <div id="time-selector" class="selector-group">
+                <span>Time:</span>
+                <button class="time-btn active" data-time="60">1 Min</button>
+                <button class="time-btn" data-time="180">3 Min</button>
+            </div>
+
+            <!-- Race Progress Bars -->
+            <div id="race-container" class="race-container hidden">
+                <div class="racer"><span>You</span><div class="progress-track"><div id="p1-bar" class="progress-fill"></div></div></div>
+                <div class="racer"><span id="rival-label">Opponent</span><div class="progress-track"><div id="p2-bar" class="progress-fill rival"></div></div></div>
+            </div>
+
+            <div class="stats-bar">
+                <span>Time Left: <strong id="timer">60</strong>s</span>
+                <span>WPM: <strong id="wpm">0</strong></span>
+                <span>Accuracy: <strong id="accuracy">100</strong>%</span>
+            </div>
+            
+            <div id="text-display" class="text-display"></div>
+
+            <div id="input-area">
+                <textarea id="input-field" placeholder="Click here and start typing..." autofocus></textarea>
+            </div>
+            
+            <button id="restart-btn">Restart Game</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

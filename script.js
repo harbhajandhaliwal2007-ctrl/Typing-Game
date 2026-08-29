@@ -5,12 +5,11 @@ const paragraphs = [
     "Web development involves building and maintaining websites using html css and javascript."
 ];
 
-// Screens
+
 const menuScreen = document.getElementById("menu-screen");
 const friendSetupScreen = document.getElementById("friend-setup-screen");
 const gameScreen = document.getElementById("game-screen");
 
-// Buttons & Inputs
 const modePractice = document.getElementById("mode-practice");
 const modeGuest = document.getElementById("mode-guest");
 const modeFriend = document.getElementById("mode-friend");
@@ -97,9 +96,8 @@ function startGameMode(mode) {
     resetGame();
 }
 
-// --- PEERJS SETUP ---
 function initPeer() {
-    peer = new Peer(); // Create random peer ID from cloud server
+    peer = new Peer();
 
     peer.on("open", (id) => {
         myRoomIdSpan.innerText = id;
@@ -109,7 +107,7 @@ function initPeer() {
         conn = incomingConn;
         isHost = true;
         setupConnectionListeners();
-        // Start game as host
+    
         friendSetupScreen.classList.add("hidden");
         gameScreen.classList.remove("hidden");
         raceContainer.classList.remove("hidden");
@@ -158,7 +156,7 @@ function setupConnectionListeners() {
     });
 }
 
-// --- TYPING GAME CORE ---
+
 function loadParagraph() {
     if (currentMode === "friend" && !isHost) return; // Guest waits for host's text
     const selectedText = paragraphs[Math.floor(Math.random() * paragraphs.length)];
@@ -213,7 +211,7 @@ function initTyping() {
         if (charIndex < characters.length) characters[charIndex].classList.add("current");
     }
 
-    // Update Player Progress & Send to Friend if in Multiplayer
+    
     let percent = (charIndex / characters.length) * 100;
     p1Bar.style.width = percent + "%";
 
@@ -263,8 +261,6 @@ function resetGame() {
         loadParagraph();
     }
 }
-
-// Event Listeners
 inputField.addEventListener("input", initTyping);
 restartBtn.addEventListener("click", () => {
     resetGame();
